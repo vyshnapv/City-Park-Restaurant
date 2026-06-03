@@ -70,7 +70,7 @@
   z-index: 1;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 130px 1.5rem 100px;
+  padding: 100px 1.5rem 80px;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -160,7 +160,7 @@
 }
 
 .hero-title-main {
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
   font-weight: 800;
   color: var(--white);
   letter-spacing: -0.02em;
@@ -169,7 +169,7 @@
 }
 
 .hero-title-sub {
-  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   font-weight: 500;
   color: var(--gold-light);
   font-style: italic;
@@ -200,7 +200,7 @@
 /* Tagline */
 .hero-tagline {
   font-family: var(--font-display);
-  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
   font-style: italic;
   color: rgba(255, 255, 255, 0.82);
   line-height: 1.65;
@@ -231,10 +231,10 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.85rem 1.75rem;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--radius-full);
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   cursor: pointer;
   transition: var(--transition);
   border: none;
@@ -292,14 +292,14 @@
 
 .chip-val {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--gold-light);
   line-height: 1;
 }
 
 .chip-label {
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   font-weight: 500;
   color: rgba(255,255,255,0.55);
   text-transform: uppercase;
@@ -308,7 +308,7 @@
 
 .chip-sep {
   width: 1px;
-  height: 36px;
+  height: 28px;
   background: rgba(255,255,255,0.15);
 }
 
@@ -327,7 +327,7 @@
   position: relative;
   border-radius: var(--radius-lg);
   overflow: visible;
-  height: 520px;
+  height: 420px;
 }
 
 .hero-img {
@@ -468,8 +468,8 @@
 }
 
 @media (max-width: 600px) {
-  .hero-title-main { font-size: 2.8rem; }
-  .hero-title-sub  { font-size: 1.3rem; }
-  .hero-btn { padding: 0.75rem 1.4rem; font-size: 0.86rem; }
+  .hero-title-main { font-size: 2.3rem; }
+  .hero-title-sub  { font-size: 1.1rem; }
+  .hero-btn { padding: 0.65rem 1.25rem; font-size: 0.82rem; }
   .tagline-break { display: none; }
 }
