@@ -1,0 +1,75 @@
+<section class="testimonials-section">
+  <div class="container">
+    
+    <div class="section-header reveal">
+      <span class="section-label">Guest Opinions</span>
+      <h2 class="section-title">What Our <span>Guests Say</span></h2>
+      <div class="gold-divider"></div>
+      <p class="section-subtitle">
+        We strive to provide outstanding food and service. Read testimonials from our valued guests.
+      </p>
+    </div>
+
+    <!-- Testimonials Carousel -->
+    <div class="testimonials-carousel">
+      <button class="carousel-nav prev" (click)="prevSlide()" aria-label="Previous reviews">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      
+      <div class="carousel-track-container">
+        <div class="carousel-track" [style.transform]="'translateX(' + (currentIndex * -33.33) + '%)'">
+          <div 
+            *ngFor="let t of testimonials; let i = index" 
+            class="testimonial-card reveal-scale"
+            [class]="'stagger-' + ((i % 3) + 1)">
+            
+            <!-- Stars -->
+            <div class="star-rating">
+              <span *ngFor="let star of getStarsArray(t.rating)" class="star">★</span>
+            </div>
+
+            <!-- Review Text -->
+            <blockquote class="review-quote">
+              "{{ t.review }}"
+            </blockquote>
+
+            <!-- Divider line -->
+            <div class="card-line"></div>
+
+            <!-- User profile details -->
+            <div class="user-profile">
+              <div class="user-avatar" [style.background-color]="t.avatarColor">
+                {{ t.initials }}
+              </div>
+              <div class="user-info">
+                <h4 class="user-name">{{ t.name }}</h4>
+                <span class="user-location">{{ t.location }}</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+      <button class="carousel-nav next" (click)="nextSlide()" aria-label="Next reviews">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+      <button 
+        *ngFor="let indicator of indicators" 
+        class="indicator"
+        [class.active]="currentIndex === indicator"
+        (click)="goToSlide(indicator)"
+        aria-label="Go to slide {{ indicator + 1 }}">
+      </button>
+    </div>
+
+  </div>
+</section>

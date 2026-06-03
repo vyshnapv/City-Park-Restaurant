@@ -1,0 +1,156 @@
+<section class="contact-section">
+  <div class="container">
+    
+    <div class="section-header reveal">
+      <span class="section-label">Connect With Us</span>
+      <h2 class="section-title">Visit Us or <span>Book a Table</span></h2>
+      <div class="gold-divider"></div>
+      <p class="section-subtitle">
+        We are located in the heart of Chemmad. Drop by to enjoy authentic dining, or send a reservation request below.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      
+      <!-- Left Column: Contact details & Iframe Map -->
+      <div class="contact-info-block reveal-left">
+        <h3 class="info-block-title">Contact Information</h3>
+        
+        <div class="info-items">
+          
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <div class="info-text">
+              <h4>Our Location</h4>
+              <p style="white-space: pre-line;">{{ info.address }}</p>
+              <a [href]="info.mapUrl" target="_blank" class="maps-link">
+                View on Google Maps →
+              </a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">📞</span>
+            <div class="info-text">
+              <h4>Call & WhatsApp</h4>
+              <p><a [href]="'tel:' + info.phoneRaw">{{ info.phone }}</a></p>
+              <p><a [href]="'https://wa.me/' + info.whatsapp" target="_blank">Chat on WhatsApp</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">🕒</span>
+            <div class="info-text">
+              <h4>Opening Hours</h4>
+              <p>{{ info.hoursWeekday }}</p>
+              <p>{{ info.hoursWeekend }}</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div class="map-container">
+          <iframe 
+            [src]="mapEmbedUrl" 
+            width="100%" 
+            height="230" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Booking Form -->
+      <div class="contact-form-block reveal-right">
+        <h3 class="form-block-title">Table Reservation</h3>
+        <p class="form-block-subtitle">Request a table and we'll confirm via WhatsApp instantly.</p>
+        
+        <form (submit)="submitBooking($event)" class="booking-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="res-name">Your Name</label>
+              <input 
+                type="text" 
+                id="res-name" 
+                placeholder="e.g., Muhammed Aslam"
+                required
+                [value]="name()"
+                (input)="name.set($any($event.target).value)">
+            </div>
+            
+            <div class="form-group">
+              <label for="res-phone">Phone Number</label>
+              <input 
+                type="tel" 
+                id="res-phone" 
+                placeholder="e.g., +91 94473 64089"
+                required
+                [value]="phone()"
+                (input)="phone.set($any($event.target).value)">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="res-guests">Number of Guests</label>
+              <select 
+                id="res-guests" 
+                [value]="guests()" 
+                (change)="guests.set($any($event.target).value)">
+                <option value="1">1 Person</option>
+                <option value="2">2 Persons</option>
+                <option value="3">3 Persons</option>
+                <option value="4">4 Persons</option>
+                <option value="5">5 Persons</option>
+                <option value="6">6+ Persons</option>
+                <option value="10">10+ Persons (Party)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="res-date">Date</label>
+              <input 
+                type="date" 
+                id="res-date"
+                [value]="date()"
+                (input)="date.set($any($event.target).value)">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="res-time">Preferred Time</label>
+              <input 
+                type="time" 
+                id="res-time"
+                [value]="time()"
+                (input)="time.set($any($event.target).value)">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="res-msg">Special Notes (Allergies, Seating Preference)</label>
+            <textarea 
+              id="res-msg" 
+              rows="3" 
+              placeholder="e.g., We need a quiet corner / high chair for kids"
+              [value]="message()"
+              (input)="message.set($any($event.target).value)"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary form-submit-btn">
+            <span>Send Booking via WhatsApp</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23c-1.48 0-2.93-.4-4.19-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.32a8.188 8.188 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24M8.53 7.33c-.15 0-.41.06-.62.28c-.22.24-.83.82-.83 2c0 1.19.86 2.33.98 2.5c.12.16 1.69 2.58 4.11 3.62c.58.25 1.03.4 1.38.51c.58.18 1.11.16 1.53.09c.46-.07 1.43-.58 1.63-1.15c.2-.57.2-1.06.14-1.16c-.06-.1-.22-.16-.47-.28c-.25-.12-1.49-.74-1.72-.82c-.23-.08-.4-.12-.57.12c-.17.25-.66.82-.81.99c-.15.17-.3.19-.55.07c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.15-.25-.02-.38.1-.5c.11-.11.25-.29.37-.43c.12-.14.16-.24.25-.41c.08-.16.04-.31-.02-.43c-.06-.12-.57-1.37-.78-1.88c-.2-.48-.41-.42-.57-.42c-.15-.01-.32-.01-.49-.01z"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section>

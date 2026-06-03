@@ -1,0 +1,59 @@
+<section class="dishes-section">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="section-label">Gastronomic Masterpieces</span>
+      <h2 class="section-title">Explore Our <span>Signature Dishes</span></h2>
+      <div class="gold-divider"></div>
+      <p class="section-subtitle">
+        Indulge in our carefully selected menu featuring local Malabar specialties,
+        sizzling grills, rich Arabian feasts, and delightful desserts.
+      </p>
+    </div>
+    <!-- Category Filter Tabs -->
+    <div class="category-tabs reveal">
+      <button
+        *ngFor="let cat of categories"
+        (click)="setCategory(cat)"
+        [class.active]="selectedCategory() === cat"
+        class="tab-btn">
+        {{ cat }}
+      </button>
+    </div>
+
+    <!-- Dishes Grid -->
+    <div class="dishes-grid">
+      <div
+        *ngFor="let dish of filteredDishes(); let i = index"
+        class="dish-card reveal-scale"
+        [ngClass]="'stagger-' + ((i % 3) + 1)">
+
+        <!-- Image -->
+        <div class="dish-visual">
+          <img [src]="dish.image" [alt]="dish.name" class="dish-img" loading="lazy">
+          <!-- Badge -->
+          <div class="dish-badge" *ngIf="dish.badge">{{ dish.badge }}</div>
+        </div>
+
+        <!-- Details -->
+        <div class="dish-info">
+          <div class="dish-meta">
+            <span class="dish-tag">{{ dish.category }}</span>
+            <span class="dish-price">{{ dish.price }}</span>
+          </div>
+          <h3 class="dish-name">{{ dish.name }}</h3>
+          <p class="dish-desc">{{ dish.description }}</p>
+
+          <button (click)="orderDish(dish)" class="order-btn">
+            <span>Order via WhatsApp</span>
+            <svg class="order-icon" viewBox="0 0 24 24" width="18" height="18">
+              <path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23c-1.48 0-2.93-.4-4.19-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.32a8.188 8.188 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24M8.53 7.33c-.15 0-.41.06-.62.28c-.22.24-.83.82-.83 2c0 1.19.86 2.33.98 2.5c.12.16 1.69 2.58 4.11 3.62c.58.25 1.03.4 1.38.51c.58.18 1.11.16 1.53.09c.46-.07 1.43-.58 1.63-1.15c.2-.57.2-1.06.14-1.16c-.06-.1-.22-.16-.47-.28c-.25-.12-1.49-.74-1.72-.82c-.23-.08-.4-.12-.57.12c-.17.25-.66.82-.81.99c-.15.17-.3.19-.55.07c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.15-.25-.02-.38.1-.5c.11-.11.25-.29.37-.43c.12-.14.16-.24.25-.41c.08-.16.04-.31-.02-.43c-.06-.12-.57-1.37-.78-1.88c-.2-.48-.41-.42-.57-.42c-.15-.01-.32-.01-.49-.01z"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

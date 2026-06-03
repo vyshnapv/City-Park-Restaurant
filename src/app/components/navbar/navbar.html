@@ -1,0 +1,100 @@
+<nav class="navbar" [class.scrolled]="isScrolled()" [class.menu-open]="isMenuOpen()">
+  <div class="nav-inner">
+
+    <!-- Logo -->
+    <a class="nav-logo" (click)="scrollTo('#home')" role="button" aria-label="Go to top">
+      <!-- Golden Monogram Emblem -->
+      <div class="logo-monogram">
+        <svg viewBox="0 0 100 100" width="46" height="46">
+          <defs>
+            <linearGradient id="logoGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#a07830" />
+              <stop offset="50%" stop-color="#c9a84c" />
+              <stop offset="100%" stop-color="#e8c870" />
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="44" fill="none" stroke="url(#logoGold)" stroke-width="2" />
+          <circle cx="50" cy="50" r="39" fill="none" stroke="url(#logoGold)" stroke-width="1" stroke-dasharray="3 2" opacity="0.8" />
+          <path d="M38 35 C38 35 48 33 52 38 C56 42 56 48 50 52 C46 54 38 54 38 54 M38 32 L38 68 M35 68 L48 68 M45 32 L35 32" stroke="url(#logoGold)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M54 48 C54 48 64 47 68 52 C72 56 72 62 66 66 C62 68 54 68 54 68 M54 48 L54 68 M51 68 L60 68" stroke="url(#logoGold)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <div class="logo-divider"></div>
+      <div class="logo-text">
+        <span class="logo-name">City Park</span>
+        <span class="logo-tagline">Family Restaurant</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <ul class="nav-links" role="navigation" aria-label="Main navigation">
+      @for (link of navLinks; track link.label) {
+        <li>
+          <a
+            class="nav-link"
+            (click)="scrollTo(link.href)"
+            role="button"
+            [attr.aria-label]="'Navigate to ' + link.label"
+          >{{ link.label }}</a>
+        </li>
+      }
+    </ul>
+
+    <!-- Desktop Actions -->
+    <div class="nav-actions">
+      <a
+        id="nav-call-btn"
+        class="nav-call"
+        [href]="'tel:' + info.phoneRaw"
+        aria-label="Call us"
+      >
+        <span class="call-icon">📞</span>
+        <span class="call-text">{{ info.phone }}</span>
+      </a>
+      <button
+        id="nav-reserve-btn"
+        class="btn-reserve"
+        (click)="reserveTable()"
+        aria-label="Reserve a table via WhatsApp"
+      >
+        🪑 Reserve Table
+      </button>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button
+      id="hamburger-btn"
+      class="hamburger"
+      (click)="toggleMenu()"
+      [class.active]="isMenuOpen()"
+      [attr.aria-expanded]="isMenuOpen()"
+      aria-label="Toggle navigation menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu" [class.open]="isMenuOpen()" role="dialog" aria-label="Mobile navigation">
+    <ul class="mobile-links">
+      @for (link of navLinks; track link.label) {
+        <li>
+          <a class="mobile-link" (click)="scrollTo(link.href)" role="button">
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+    <div class="mobile-cta">
+      <a id="mobile-call-btn" [href]="'tel:' + info.phoneRaw" class="mobile-call-btn">
+        📞 Call Us Now
+      </a>
+      <button id="mobile-reserve-btn" class="mobile-reserve-btn" (click)="reserveTable()">
+        🪑 Reserve Table
+      </button>
+    </div>
+  </div>
+</nav>

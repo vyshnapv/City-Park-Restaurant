@@ -1,0 +1,126 @@
+<section class="hero">
+  <!-- Decorative Background Elements -->
+  <div class="hero-orb hero-orb--1"></div>
+  <div class="hero-orb hero-orb--2"></div>
+  <div class="hero-orb hero-orb--3"></div>
+  <div class="hero-grid-overlay"></div>
+
+  <div class="hero-inner">
+    <!-- Left: Content -->
+    <div class="hero-content">
+
+      <!-- Open/Closed Badge -->
+      <div class="status-badge" [class.open]="isOpen()" [class.closed]="!isOpen()">
+        <span class="status-dot"></span>
+        <span class="status-text">{{ isOpen() ? 'Open Now' : 'Closed Now' }}</span>
+        <span class="status-hours">{{ currentHours() }}</span>
+      </div>
+
+      <!-- Label -->
+      <span class="hero-label">Welcome to</span>
+
+      <!-- Heading -->
+      <h1 class="hero-title">
+        <span class="hero-title-main">City Park</span>
+        <span class="hero-title-sub">Family Restaurant</span>
+      </h1>
+
+      <!-- Gold Divider -->
+      <div class="hero-divider">
+        <span class="divider-line"></span>
+        <span class="divider-icon">🍽️</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <!-- Tagline -->
+      <p class="hero-tagline">
+        "Delicious Food, Warm Ambience,<br class="tagline-break"> Memorable Moments"
+      </p>
+
+      <!-- Address -->
+      <p class="hero-address">
+        <span class="addr-icon">📍</span>
+        City Tower, Parappanangadi Road, Chemmad, Malappuram
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="hero-ctas">
+        <button
+          id="hero-menu-btn"
+          class="hero-btn hero-btn--primary"
+          (click)="scrollTo('#menu')"
+          aria-label="View our menu"
+        >
+          <span>🍛</span> View Menu
+        </button>
+        <button
+          id="hero-call-btn"
+          class="hero-btn hero-btn--secondary"
+          (click)="callNow()"
+          aria-label="Call us now"
+        >
+          <span>📞</span> Call Now
+        </button>
+        <button
+          id="hero-directions-btn"
+          class="hero-btn hero-btn--outline"
+          (click)="getDirections()"
+          aria-label="Get directions to restaurant"
+        >
+          <span>🗺️</span> Get Directions
+        </button>
+      </div>
+
+      <!-- Stats Chips -->
+      <div class="hero-chips">
+        <div class="hero-chip">
+          <span class="chip-val">8+</span>
+          <span class="chip-label">Years</span>
+        </div>
+        <div class="chip-sep"></div>
+        <div class="hero-chip">
+          <span class="chip-val">50K+</span>
+          <span class="chip-label">Customers</span>
+        </div>
+        <div class="chip-sep"></div>
+        <div class="hero-chip">
+          <span class="chip-val">25+</span>
+          <span class="chip-label">Specialties</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Image Showcase -->
+    <div class="hero-visual">
+      <div class="visual-frame">
+        <img src="image/image1.webp" alt="City Park Restaurant Ambience" class="hero-img">
+        <!-- Floating Food Cards -->
+        <div class="float-card float-card--1">
+          <span class="fc-icon">🍛</span>
+          <div>
+            <div class="fc-name">Malabar Biryani</div>
+            <div class="fc-tag">Best Seller ⭐</div>
+          </div>
+        </div>
+        <div class="float-card float-card--2">
+          <span class="fc-icon">🍗</span>
+          <div>
+            <div class="fc-name">Arabian Mandi</div>
+            <div class="fc-tag">Signature Dish</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative ring -->
+      <div class="visual-ring"></div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator" (click)="scrollTo('#about')" role="button" aria-label="Scroll down">
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
+    </div>
+    <span class="scroll-text">Scroll Down</span>
+  </div>
+</section>

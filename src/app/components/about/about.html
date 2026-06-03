@@ -1,0 +1,68 @@
+<section class="about-section">
+  <div class="container">
+    <div class="about-grid">
+      
+      <!-- Left Column: Visual Storytelling -->
+      <div class="about-visual reveal-left">
+        <div class="image-collage">
+          <div class="collage-item collage-item--main">
+            <img src="image/image5.webp" alt="Cozy Family Dining Ambience" class="about-img">
+          </div>
+          <div class="collage-item collage-item--secondary">
+              <img src="image/image6.webp" alt="Signature Malabar Delicacies" class="about-img">
+          </div>
+          <!-- Decorative Floating Card -->
+          <div class="floating-badge">
+            <span class="badge-num">8+</span>
+            <span class="badge-text">Years of Flavorful Legacy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Narrative Content -->
+      <div class="about-content reveal-right">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">Serving Smiles & <span>Authentic Flavors</span> Since 2018</h2>
+        <div class="gold-divider" style="margin: 0 0 1.5rem 0;"></div>
+        
+        <p class="about-desc">
+          Nestled in the vibrant heart of Chemmad, <strong>City Park Family Restaurant</strong> has established itself as a culinary haven for food lovers. We take pride in crafting memorable dining experiences by blending traditional Malabar recipes with global culinary favorites.
+        </p>
+        
+        <p class="about-desc">
+          Whether you're craving the slow-cooked perfection of our signature Malabar Dum Biryani, the smoky goodness of Arabian Mandi, or traditional Kerala feasts served on fresh banana leaves, our chefs use only the finest handpicked ingredients to ensure quality and hygiene in every bite.
+        </p>
+
+        <div class="about-features">
+          <div class="feature-item">
+            <div class="feature-icon">✨</div>
+            <div>
+              <h3>Warm Family Atmosphere</h3>
+              <p>Comfortable, spacious seating designed with your family's privacy and comfort in mind.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🌿</div>
+            <div>
+              <h3>Fresh, Locally Sourced Ingredients</h3>
+              <p>Hand-picked spices, fresh seafood catch, and premium meat prepared daily with care.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stats Row Section -->
+    <div class="stats-row reveal">
+      <div class="stat-card" *ngFor="let stat of stats; let i = index">
+        <div class="stat-num-container">
+          <span class="stat-num" #counterEl>{{ counterValues[i] }}</span>
+          <span class="stat-suffix">{{ stat.suffix }}</span>
+        </div>
+        <div class="stat-label">{{ stat.label }}</div>
+      </div>
+    </div>
+
+  </div>
+</section>

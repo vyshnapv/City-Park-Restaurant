@@ -1,0 +1,4 @@
+/* App-level reset */
+main {
+  overflow-x: hidden;
+}

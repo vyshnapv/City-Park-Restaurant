@@ -1,0 +1,49 @@
+<section class="why-section">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="section-label">Why Diners Choose Us</span>
+
+      <h2 class="section-title">
+        A Dining Experience
+        <span>Crafted with Care</span>
+      </h2>
+
+      <div class="gold-divider"></div>
+
+      <p class="section-subtitle">
+        Every dish, every ingredient, and every interaction is carefully
+        designed to create memorable moments for you and your family.
+      </p>
+    </div>
+
+    <div class="why-grid">
+
+      <div
+        class="why-card reveal-scale"
+        *ngFor="let card of cards; let i = index"
+        [class]="'stagger-' + ((i % 3) + 1)"
+      >
+
+        <div class="card-top-line"></div>
+
+        <div class="card-glow"></div>
+
+        <div class="card-icon-container">
+          <span class="card-icon">{{ card.icon }}</span>
+        </div>
+
+        <h3 class="card-title">
+          {{ card.title }}
+        </h3>
+
+        <p class="card-desc">
+          {{ card.description }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
