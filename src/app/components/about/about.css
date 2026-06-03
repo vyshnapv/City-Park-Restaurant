@@ -267,17 +267,3 @@
     display: none !important;
   }
 }
-
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--primary-green);
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
-}
-
-.section-title span {
-  color: var(--gold);
-}
