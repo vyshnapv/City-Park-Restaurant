@@ -341,11 +341,6 @@
   .hamburger { display: flex; }
 }
 
-@media (max-width: 768px) {
-  .nav-inner { padding: 0 1.25rem; }
-  .logo-name { font-size: 1.8rem; }
-}
-
 @media (max-width: 480px) {
   .call-text { display: none; }
 }
